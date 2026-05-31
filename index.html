@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autism Support & Resources for Parents</title>
+    <style>
+        /* Modern, clean style rules */
+        :root {
+            --primary-color: #0076FF;
+            --secondary-color: #E8F2FF;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --background: #FAFAFA;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid #E5E7EB;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Hero Banner Section */
+        .hero {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Grid */
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        /* Resource Grid Cards */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .card-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Expandable FAQ Accordion Section */
+        .faq-section {
+            background-color: var(--card-bg);
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .faq-section h2 {
+            margin-bottom: 20px;
+            font-size: 1.75rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #E5E7EB;
+            padding: 15px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid #E5E7EB;
+            background-color: var(--card-bg);
+            margin-top: 60px;
+        }
+
+        /* Quick-Links Widget Logic (Bottom Right) */
+        #quick-widget {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        #widget-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px 22px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+        }
+
+        #widget-btn:active {
+            transform: scale(0.95);
+        }
+
+        #widget-panel {
+            display: none;
+            background: white;
+            width: 280px;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            margin-bottom: 12px;
+            overflow: hidden;
+            border: 1px solid #E5E7EB;
+        }
+
+        .panel-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 16px;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .panel-links a {
+            display: block;
+            padding: 12px 16px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .panel-links a:hover {
+            background-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">💡 Care & Connect</a>
+        </div>
+    </header>
+
+    <!-- Hero Headline Panel -->
+    <section class="hero">
+        <h1>Parent Resources & Support</h1>
+        <p>Finding the right tools, information, and community to help navigate your family's unique developmental journey.</p>
+    </section>
+
+    <!-- Main Grid Content -->
+    <main class="main-container">
+        
+        <!-- Resource Section Boxes -->
+        <div class="resource-grid">
+            <div class="card">
+                <span class="card-icon">📘</span>
+                <h3>Developmental Milestones</h3>
+                <p>Track early markers, behaviors, and core timelines to stay informed on your child's growth steps.</p>
+                <a href="#" class="card-link">Read Guide →</a>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">🎒</span>
+                <h3>Daily Routines & Tips</h3>
+                <p>Practical structural strategies for managing sensory-friendly routines at home or during transitions.</p>
+                <a href="#" class="card-link">View Tips →</a>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">🤝</span>
+                <h3>Community Resources</h3>
+                <p>Connect with professional support groups, advocacy networks, and local family circles.</p>
+                <a href="#" class="card-link">Find Support →</a>
+            </div>
+        </div>
+
+        <!-- Interactive Accordion FAQ Section -->
+        <div class="faq-section">
+            <h2>Common Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What are early signs of autism? <span>＋</span></div>
+                <div class="faq-answer">Common indicators can include differences in social interactions, delayed or specialized language patterns, repetitive behaviors, or heightened reactions to sensory details. Every child's balance is entirely unique.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How can I build a sensory-friendly routine? <span>＋</span></div>
+                <div class="faq-answer">Creating predictability through clear schedules, integrating visual charts, limiting harsh sound elements, and planning quiet environments for sensory downtime are great ways to begin establishing a routine.</div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Floating Quick Links Widget -->
+    <div id="quick-widget">
+        <button id="widget-btn">ℹ️ Need Help?</button>
+        <div id="widget-panel">
+            <div class="panel-header">Quick Help Hub</div>
+            <div class="panel-links">
+                <a href="#">📞 Emergency Support Lines</a>
+                <a href="#">📍 Find Local Clinics</a>
+                <a href="#">📩 Download Checklist PDF</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Footer -->
+    <footer>
+        <p>&copy; 2026 Care & Connect. Providing supportive educational resources for families.</p>
+    </footer>
+
+    <!-- Interactive Javascript Script Logic -->
+    <script>
+        // 1. FAQ Dropdown Open/Close Logic
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('span');
+                
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    icon.textContent = '＋';
+                } else {
+                    answer.style.display = 'block';
+                    icon.textContent = '－';
+                }
+            });
+        });
+
+        // 2. Bottom Right Support Widget Toggle Logic
+        const widgetBtn = document.getElementById('widget-btn');
+        const widgetPanel = document.getElementById('widget-panel');
+
+        widgetBtn.addEventListener('click', () => {
+            if (widgetPanel.style.display === 'block') {
+                widgetPanel.style.display = 'none';
+            } else {
+                widgetPanel.style.display = 'block';
+            }
+        });
+
+        // Close panel if user clicks anywhere outside of it
+        window.addEventListener('click', (e) => {
+            if (!document.getElementById('quick-widget').contains(e.target)) {
+                widgetPanel.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
