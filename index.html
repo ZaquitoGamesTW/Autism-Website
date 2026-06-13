@@ -3,364 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autism Support & Resources for Parents</title>
+    <meta name="description" content="ZaquitoStudios Advanced Tech Company - Innovative tech solutions, cutting-edge development, and next-gen digital experiences.">
+    <title>ZSATC | ZaquitoStudios Advanced Tech Company</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
     <style>
-        /* Modern, clean style rules */
-        :root {
-            --primary-color: #0076FF;
-            --secondary-color: #E8F2FF;
-            --text-dark: #1F2937;
-            --text-light: #6B7280;
-            --background: #FAFAFA;
-            --card-bg: #FFFFFF;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--background);
-            color: var(--text-dark);
-            line-height: 1.6;
-            padding-bottom: 60px;
+            font-family: 'Inter', system-ui, sans-serif;
         }
-
-        /* Header Navigation */
-        header {
-            background-color: var(--card-bg);
-            border-bottom: 1px solid #E5E7EB;
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            text-decoration: none;
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
-
-        /* Hero Banner Section */
-        .hero {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-            letter-spacing: -0.025em;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Main Content Grid */
-        .main-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-        }
-
-        /* Resource Grid Cards */
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid #E5E7EB;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 12px;
-            display: inline-block;
-        }
-
-        .card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 16px;
-        }
-
-        .card-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .card-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Expandable FAQ Accordion Section */
-        .faq-section {
-            background-color: var(--card-bg);
-            border: 1px solid #E5E7EB;
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 40px;
-        }
-
-        .faq-section h2 {
-            margin-bottom: 20px;
-            font-size: 1.75rem;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid #E5E7EB;
-            padding: 15px 0;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-question {
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-        }
-
-        .faq-answer {
-            display: none;
-            margin-top: 10px;
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            border-top: 1px solid #E5E7EB;
-            background-color: var(--card-bg);
-            margin-top: 60px;
-        }
-
-        /* Quick-Links Widget Logic (Bottom Right) */
-        #quick-widget {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column-reverse;
-        }
-
-        #widget-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 14px 22px;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transition: transform 0.2s;
-        }
-
-        #widget-btn:active {
-            transform: scale(0.95);
-        }
-
-        #widget-panel {
-            display: none;
-            background: white;
-            width: 280px;
-            border-radius: 14px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-            margin-bottom: 12px;
-            overflow: hidden;
-            border: 1px solid #E5E7EB;
-        }
-
-        .panel-header {
-            background: var(--primary-color);
-            color: white;
-            padding: 12px 16px;
-            font-weight: bold;
-            font-size: 0.95rem;
-        }
-
-        .panel-links a {
-            display: block;
-            padding: 12px 16px;
-            color: var(--text-dark);
-            text-decoration: none;
-            font-size: 0.9rem;
-            border-bottom: 1px solid #F3F4F6;
-        }
-
-        .panel-links a:hover {
-            background-color: var(--secondary-color);
+        
+        .logo-glow {
+            text-shadow: 0 0 15px rgb(167 139 250);
         }
     </style>
 </head>
-<body>
-
-    <!-- Header Navigation -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">💡 Care & Connect</a>
+<body class="bg-zinc-950 text-white">
+    <!-- Navbar -->
+    <nav class="bg-zinc-900 border-b border-zinc-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-violet-600 rounded-2xl flex items-center justify-center text-xl font-bold">⚡</div>
+                <span class="text-2xl font-bold tracking-tight logo-glow">ZSATC</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#about" class="hover:text-violet-400 transition-colors">About</a>
+                <a href="#features" class="hover:text-violet-400 transition-colors">Features</a>
+                <a href="#services" class="hover:text-violet-400 transition-colors">Services</a>
+                <a href="#contact" class="hover:text-violet-400 transition-colors">Contact</a>
+            </div>
+            
+            <a href="#contact" 
+               class="bg-white text-zinc-900 px-6 py-3 rounded-2xl font-semibold hover:bg-violet-400 hover:text-white transition-all">
+                Get In Touch
+            </a>
         </div>
-    </header>
+    </nav>
 
-    <!-- Hero Headline Panel -->
-    <section class="hero">
-        <h1>Parent Resources & Support</h1>
-        <p>Finding the right tools, information, and community to help navigate your family's unique developmental journey.</p>
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-sm">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                    </span>
+                    ZaquitoStudios Advanced Tech Company
+                </div>
+                
+                <h1 class="text-6xl md:text-7xl font-bold leading-tight tracking-tighter">
+                    Advanced Tech.<br><span class="text-violet-300">Built Different.</span>
+                </h1>
+                
+                <p class="text-xl text-zinc-300 max-w-md">
+                    ZSATC delivers next-level software, web experiences, and innovative solutions. 
+                    Professional, lightning-fast, and crafted for the future.
+                </p>
+                
+                <div class="flex items-center gap-4">
+                    <a href="#contact" 
+                       class="bg-white text-zinc-900 px-8 py-4 rounded-3xl font-semibold text-lg hover:scale-105 transition-all flex items-center gap-3">
+                        Start a Project
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    
+                    <a href="#about" 
+                       class="border border-white/30 px-8 py-4 rounded-3xl font-medium hover:bg-white/10 transition-all">
+                        Learn More
+                    </a>
+                </div>
+                
+                <div class="flex items-center gap-8 text-sm text-zinc-400">
+                    <div>✅ InfinityFree Optimized</div>
+                    <div>✅ Fully Responsive</div>
+                    <div>✅ Modern Stack</div>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="bg-zinc-900/50 backdrop-blur-xl border border-white/10 rounded-3xl p-3 shadow-2xl">
+                    <img src="https://picsum.photos/id/1015/800/600" 
+                         alt="ZSATC Tech Preview" 
+                         class="rounded-2xl w-full shadow-inner">
+                </div>
+                
+                <div class="absolute -top-6 -right-6 bg-zinc-900 border border-white/10 rounded-2xl px-6 py-3 text-sm flex items-center gap-3 shadow-xl">
+                    <div class="text-emerald-400">●</div>
+                    <div>Live &amp; Growing</div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Main Grid Content -->
-    <main class="main-container">
-        
-        <!-- Resource Section Boxes -->
-        <div class="resource-grid">
-            <div class="card">
-                <span class="card-icon">📘</span>
-                <h3>Developmental Milestones</h3>
-                <p>Track early markers, behaviors, and core timelines to stay informed on your child's growth steps.</p>
-                <a href="#" class="card-link">Read Guide →</a>
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">About ZSATC</h2>
+                <p class="text-zinc-400 max-w-lg mx-auto">
+                    ZaquitoStudios Advanced Tech Company - where creativity meets cutting-edge technology.
+                </p>
             </div>
-
-            <div class="card">
-                <span class="card-icon">🎒</span>
-                <h3>Daily Routines & Tips</h3>
-                <p>Practical structural strategies for managing sensory-friendly routines at home or during transitions.</p>
-                <a href="#" class="card-link">View Tips →</a>
-            </div>
-
-            <div class="card">
-                <span class="card-icon">🤝</span>
-                <h3>Community Resources</h3>
-                <p>Connect with professional support groups, advocacy networks, and local family circles.</p>
-                <a href="#" class="card-link">Find Support →</a>
-            </div>
-        </div>
-
-        <!-- Interactive Accordion FAQ Section -->
-        <div class="faq-section">
-            <h2>Common Questions</h2>
             
-            <div class="faq-item">
-                <div class="faq-question">What are early signs of autism? <span>＋</span></div>
-                <div class="faq-answer">Common indicators can include differences in social interactions, delayed or specialized language patterns, repetitive behaviors, or heightened reactions to sensory details. Every child's balance is entirely unique.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">How can I build a sensory-friendly routine? <span>＋</span></div>
-                <div class="faq-answer">Creating predictability through clear schedules, integrating visual charts, limiting harsh sound elements, and planning quiet environments for sensory downtime are great ways to begin establishing a routine.</div>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- Floating Quick Links Widget -->
-    <div id="quick-widget">
-        <button id="widget-btn">ℹ️ Need Help?</button>
-        <div id="widget-panel">
-            <div class="panel-header">Quick Help Hub</div>
-            <div class="panel-links">
-                <a href="#">📞 Emergency Support Lines</a>
-                <a href="#">📍 Find Local Clinics</a>
-                <a href="#">📩 Download Checklist PDF</a>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-zinc-800/50 border border-white/5 p-8 rounded-3xl card-hover">
+                    <div class="text-4xl mb-6">💡</div>
+                    <h3 class="text-2xl font-semibold mb-3">Innovation First</h3>
+                    <p class="text-zinc-400">We push boundaries with smart solutions that solve real problems.</p>
+                </div>
+                
+                <div class="bg-zinc-800/50 border border-white/5 p-8 rounded-3xl card-hover">
+                    <div class="text-4xl mb-6">🚀</div>
+                    <h3 class="text-2xl font-semibold mb-3">Performance Driven</h3>
+                    <p class="text-zinc-400">Built for speed and reliability on free hosting platforms like InfinityFree.</p>
+                </div>
+                
+                <div class="bg-zinc-800/50 border border-white/5 p-8 rounded-3xl card-hover">
+                    <div class="text-4xl mb-6">🌍</div>
+                    <h3 class="text-2xl font-semibold mb-3">Future Focused</h3>
+                    <p class="text-zinc-400">Creating digital experiences that scale with your vision.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Page Footer -->
-    <footer>
-        <p>&copy; 2026 Care & Connect. Providing supportive educational resources for families.</p>
+    <!-- Features -->
+    <section id="features" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">What Makes Us Different</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-zinc-900 border border-white/10 p-8 rounded-3xl card-hover">
+                    <i class="fas fa-bolt text-4xl text-violet-400 mb-6"></i>
+                    <h4 class="text-xl font-semibold mb-2">Blazing Fast</h4>
+                    <p class="text-zinc-400">Optimized code that performs perfectly on InfinityFree.</p>
+                </div>
+                
+                <div class="bg-zinc-900 border border-white/10 p-8 rounded-3xl card-hover">
+                    <i class="fas fa-mobile-alt text-4xl text-violet-400 mb-6"></i>
+                    <h4 class="text-xl font-semibold mb-2">Mobile First</h4>
+                    <p class="text-zinc-400">Flawless experience across every device.</p>
+                </div>
+                
+                <div class="bg-zinc-900 border border-white/10 p-8 rounded-3xl card-hover">
+                    <i class="fas fa-shield-alt text-4xl text-violet-400 mb-6"></i>
+                    <h4 class="text-xl font-semibold mb-2">Secure by Design</h4>
+                    <p class="text-zinc-400">Industry best practices from the ground up.</p>
+                </div>
+                
+                <div class="bg-zinc-900 border border-white/10 p-8 rounded-3xl card-hover">
+                    <i class="fas fa-palette text-4xl text-violet-400 mb-6"></i>
+                    <h4 class="text-xl font-semibold mb-2">Premium Design</h4>
+                    <p class="text-zinc-400">Clean, modern aesthetics that impress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold mb-4">Let's Build Together</h2>
+                <p class="text-zinc-400">Ready to bring your idea to life? Reach out to the ZSATC team.</p>
+            </div>
+            
+            <form id="contactForm" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" id="name" placeholder="Your Name" 
+                           class="bg-zinc-800 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-violet-500 transition-colors">
+                    <input type="email" id="email" placeholder="your@email.com" 
+                           class="bg-zinc-800 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-violet-500 transition-colors">
+                </div>
+                
+                <textarea id="message" rows="6" placeholder="Tell us about your project or idea..." 
+                          class="w-full bg-zinc-800 border border-white/10 rounded-3xl px-6 py-4 focus:outline-none focus:border-violet-500 transition-colors"></textarea>
+                
+                <button type="submit"
+                        class="w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 py-5 rounded-3xl font-semibold text-lg hover:brightness-110 transition-all">
+                    Send Message to ZSATC
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-16 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 bg-violet-600 rounded-2xl flex items-center justify-center text-xl">⚡</div>
+                    <span class="font-bold text-xl">ZSATC</span>
+                </div>
+                <p class="text-zinc-500 text-sm">ZaquitoStudios Advanced Tech Company</p>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-zinc-400">
+                    <li><a href="#" class="hover:text-white">Home</a></li>
+                    <li><a href="#about" class="hover:text-white">About</a></li>
+                    <li><a href="#features" class="hover:text-white">Features</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-4">Legal</h4>
+                <ul class="space-y-2 text-sm text-zinc-400">
+                    <li><a href="#" class="hover:text-white">Privacy</a></li>
+                    <li><a href="#" class="hover:text-white">Terms</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-4">Connect</h4>
+                <div class="flex gap-4 text-2xl text-zinc-400">
+                    <a href="#" class="hover:text-violet-400">𝕏</a>
+                    <a href="#" class="hover:text-violet-400">📸</a>
+                    <a href="#" class="hover:text-violet-400">🔗</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center text-zinc-500 text-sm mt-16">
+            © 2026 ZaquitoStudios Advanced Tech Company (ZSATC). All rights reserved. Hosted proudly on InfinityFree.
+        </div>
     </footer>
 
-    <!-- Interactive Javascript Script Logic -->
     <script>
-        // 1. FAQ Dropdown Open/Close Logic
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('span');
-                
-                if (answer.style.display === 'block') {
-                    answer.style.display = 'none';
-                    icon.textContent = '＋';
-                } else {
-                    answer.style.display = 'block';
-                    icon.textContent = '－';
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !message) {
+                alert("Please fill out all fields to reach the ZSATC team.");
+                return;
+            }
+            
+            // Real projects: connect to Formspree, EmailJS, or your backend
+            alert(`Message received, ${name}! The ZSATC team will get back to you soon. 🚀`);
+            this.reset();
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
-
-        // 2. Bottom Right Support Widget Toggle Logic
-        const widgetBtn = document.getElementById('widget-btn');
-        const widgetPanel = document.getElementById('widget-panel');
-
-        widgetBtn.addEventListener('click', () => {
-            if (widgetPanel.style.display === 'block') {
-                widgetPanel.style.display = 'none';
-            } else {
-                widgetPanel.style.display = 'block';
-            }
-        });
-
-        // Close panel if user clicks anywhere outside of it
-        window.addEventListener('click', (e) => {
-            if (!document.getElementById('quick-widget').contains(e.target)) {
-                widgetPanel.style.display = 'none';
-            }
-        });
+        
+        console.log("%c✅ ZSATC index.html loaded and ready. You're all set on InfinityFree!", "color: #a5b4fc; font-size: 14px; font-weight: 600");
     </script>
 </body>
 </html>
